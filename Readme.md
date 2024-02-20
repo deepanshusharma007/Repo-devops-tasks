@@ -30,38 +30,12 @@ First, let's set up our Python environment and create a basic Flask application.
 12. cd flaskapp/
 13. vim app.py  (Now you have to write this code and save it)
 
-    from flask import Flask
-    app = Flask(__name__)
-
-    @app.route('/')
-    def index():
-        return 'Hello'
-
-    @app.route('/welcome')
-    def welcome():
-        return 'Welcome'
-
-    if __name__ == '__main__':
-        app.run(debug=True)
+    ![app_code](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/62e6e6db-97b0-475f-baa8-3b7221f4d312)
 
 
-14. sudo vi Dockerfile  (Now you have to write this code and save it)
+14. sudo vi Dockerfile ----> (Now you have to write this code and save it)
 
-      FROM python:3-alpine
-
-      * Create app directory
-      WORKDIR /app
-      
-      * Install app dependencies
-      COPY requirements.txt ./
-      
-      RUN pip install -r requirements.txt
-      
-      * Bundle app source
-      COPY . .
-      
-      EXPOSE 5000
-      CMD [ "flask", "run","--host","0.0.0.0","--port","5000"]
+      ![Docker_code](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/d6e61dec-67fc-46cb-bc1d-7543629bb1ba)
 
 
 15. cd flaskapp/
@@ -71,10 +45,10 @@ First, let's set up our Python environment and create a basic Flask application.
     ![hierarchy](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/55690783-fb7b-405b-9c6f-fd1c6175eda5)
 
 16. flask run --host 0.0.0.0 --port 5000
-17. Now you should have to install docker and then use this command
+17. Now you should have to install docker and then use this command ----> 
     docker build -t flaskapp .
 18. sudo docker images
-19. sudo docker push deepli123/flaskapp:latest   (here deepli123 is my docker hub profile name)
+19. sudo docker push deepli123/flaskapp:latest  ---->  (here deepli123 is my docker hub profile name)
 
     ![dockerhub](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/aeb7ce58-1ac9-4de5-8ab9-5f719c7bb673)
 
