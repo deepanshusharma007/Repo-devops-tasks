@@ -223,8 +223,8 @@ Now Let build steps to create our Docker container
 
 Select Execute Shell and all the following CMD
 
-  docker build . -t node-app-todo
-  docker run -d -p 8000:8000 node-app-todo
+  - docker build . -t node-app-todo
+  - docker run -d -p 8000:8000 node-app-todo
 
 ![ezgif-7-bb99b57b24](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/1ac93088-77a2-4269-bb98-016d7405668c)
 
