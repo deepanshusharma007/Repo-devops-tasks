@@ -49,15 +49,15 @@ First, let's set up our Python environment and create a basic Flask application.
 
       FROM python:3-alpine
 
-      # Create app directory
+      * Create app directory
       WORKDIR /app
       
-      # Install app dependencies
+      * Install app dependencies
       COPY requirements.txt ./
       
       RUN pip install -r requirements.txt
       
-      # Bundle app source
+      * Bundle app source
       COPY . .
       
       EXPOSE 5000
