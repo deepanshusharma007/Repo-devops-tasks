@@ -65,24 +65,24 @@ Install java
 -   sudo apt install openjdk-11-jre
 
 Validate installation
--     java -version
+-  java -version
 
 
 Install Jenkins
 
 Just copy these commands and paste them onto your terminal.
 
-curl -fsSL https://pkg.jenkins.io/debian/jenkins.io.key | sudo tee \   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+- curl -fsSL https://pkg.jenkins.io/debian/jenkins.io.key | sudo tee \   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
   
-echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \   https://pkg.jenkins.io/debian binary/ | sudo tee \   /etc/apt/sources.list.d/jenkins.list > /dev/null
+- echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \   https://pkg.jenkins.io/debian binary/ | sudo tee \   /etc/apt/sources.list.d/jenkins.list > /dev/null
 
-sudo apt-get update
+- sudo apt-get update
 
-sudo apt-get install jenkins
+- sudo apt-get install jenkins
 
-sudo systemctl enable jenkins
+- sudo systemctl enable jenkins
 
-sudo systemctl start jenkins
+- sudo systemctl start jenkins
 
 
 Now copy the public IP address of the Jenkins instance, which is present in the details of the instance
@@ -92,7 +92,7 @@ Enter this IP address with the port number, i.e., "<ip_address:port_number>"- "1
 ![ezgif-7-a62265d047](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/ad36b2ef-71c9-4477-9226-4caf4f0acfb1)
 
 Now, get the password by entering the following command and enter it in the text box
-sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+- sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 Click on install the suggested plugins
 ![ezgif-2-0c45711049](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/c6140e5f-9dcf-4fb4-b043-0cc81cb64555)
@@ -106,37 +106,39 @@ After running Jenkins on our host now is time to create a Dockerfile to create a
 
 
 * Add Docker's official GPG key:
-sudo apt-get update
-sudo apt-get install ca-certificates curl
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
+- sudo apt-get update
+- sudo apt-get install ca-certificates curl
+- sudo install -m 0755 -d /etc/apt/keyrings
+- sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+- sudo chmod a+r /etc/apt/keyrings/docker.asc
 
 * Add the repository to Apt sources:
-echo \
+- echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
+- sudo apt-get update
 
 * Install Docker
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+- sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-sudo usermod -a -G docker $USER
+- sudo usermod -a -G docker $USER
 
-FROM node:12.2.0-alpine
-WORKDIR app
-COPY . .
-RUN npm install
-EXPOSE 8000
-CMD ["node","app.js"]
+Docker File Code : 
+
+    FROM node:12.2.0-alpine
+    WORKDIR app
+    COPY . .
+    RUN npm install
+    EXPOSE 8000
+    CMD ["node","app.js"]
 
 
 Now its time to make docker image and container out of the docker file
 
-sudo docker build . -t node-app
+- sudo docker build . -t node-app
 
-sudo docker run -d -p 8000:8000 todo-node-app
+- sudo docker run -d -p 8000:8000 todo-node-app
 
 
 To see our Project running we need to add port in our security group of the instance
@@ -164,19 +166,19 @@ After creating a Job we need to create a private and public key which will be us
 
 Going back to our instance to create public and private key we need to follow up the following commands.
 
-ssh-keygen
-cd .ssh
-ls
+ - ssh-keygen
+ - cd .ssh
+ - ls
 
 ![ezgif-1-821ed46ce9](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/694923c4-cbdc-4359-bbf4-5e721b7e4891)
 
-sudo cat id_rsa.pub
+- sudo cat id_rsa.pub
 
 Where id_rsa.pub stands for Public Key and id_rsa stands for Private Key
 
 ![ezgif-1-5bb25f6e65](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/6ad6fb07-58dd-4f36-ae7b-3580ccf63bb2)
 
-sudo cat id_rsa
+- sudo cat id_rsa
 
 ![ezgif-1-bc08130cd4](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/900e3240-7500-430b-803f-a8aebbf6d6b5)
 
