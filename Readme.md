@@ -94,3 +94,23 @@ Once the minikube has started, verify the status of your cluster, run
 - minikube status
 
   ![minikube_status](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/671431fb-02ba-4a29-93d1-46feb8e02fb4)
+
+
+### 6. Interact with Your Minikube Cluster
+
+ Use kubectl to interact with your Minikube Kubernetes cluster. For example, you can check the nodes in your cluster:
+
+- kubectl get nodes
+- kubectl cluster-info
+
+  ![Kubectl-Cluster-Node-Info-Ubuntu-Minikube](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/f5ca9794-7044-48a5-89fb-6d8078c05b85)
+
+  Try to deploy a sample nginx deployment, run following set of commands.
+
+- kubectl create deployment nginx-web --image=nginx
+- kubectl expose deployment nginx-web --type NodePort --port=80
+- kubectl get deployment,pod,svc
+
+  ![Kubectl-Deploy-Nginx-SVC-Minikube-Ubuntu-22-04](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/3093cc64-cfd9-4241-a50a-456ca4657afe)
+
+  
