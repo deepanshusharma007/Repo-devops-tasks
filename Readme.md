@@ -10,7 +10,7 @@
 - Integrate Jenkins and GitHub
 
 
-[NOTE]: I am utilizing this repo "[All tasks are in different branches](https://github.com/YashPimple/Jenkins-CI-CD-with-GitHub-Integration)https://github.com/YashPimple/Jenkins-CI-CD-with-GitHub-Integration"
+[NOTE]: I am utilizing this repo "[All tasks are in different branches]((https://github.com/deepanshusharma007/Jenkins-CI-CD-with-GitHub-Integration)) https://github.com/deepanshusharma007/Jenkins-CI-CD-with-GitHub-Integration"
 
 
 Set up Jenkins on AWS EC2 instance
@@ -176,11 +176,7 @@ Going back to our instance to create public and private key we need to follow up
 
 Where id_rsa.pub stands for Public Key and id_rsa stands for Private Key
 
-![ezgif-1-5bb25f6e65](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/6ad6fb07-58dd-4f36-ae7b-3580ccf63bb2)
-
 - sudo cat id_rsa
-
-![ezgif-1-bc08130cd4](https://github.com/deepanshusharma007/Repo-devops-tasks/assets/68854274/900e3240-7500-430b-803f-a8aebbf6d6b5)
 
 
 After generating the Public and Private Key now we need to connect our Jenkins with Github for that we need to create an SSH KEY.
